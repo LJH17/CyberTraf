@@ -1,0 +1,5 @@
+The first two log files, log.txt and log2.txt, show the logging info from iftop when analysing the output from the Raspberry Pi box through the ethernet port eth0.
+
+The third log file, log3.txt, shows the logging info from the wlan0 port of the RPi3 (the wireless reciever which devices connect to).
+
+It is my guess that log3 will prove more useful than log1 and log2, but our data analysis will tell us which interface we should be logging.

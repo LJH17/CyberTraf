@@ -1,0 +1,32 @@
+Listening on eth0
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 server-54-192-62-67.mad50.r.cloudfront.  =>      521Kb     1.03Mb      624Kb     3.12MB
+     192.168.0.16                             <=     27.5Kb     53.5Kb     32.1Kb      172KB
+   2 server-52-85-59-109.lhr50.r.cloudfront.  =>         0b     51.3Kb     73.7Kb      447KB
+     192.168.0.16                             <=         0b     22.8Kb     21.4Kb      114KB
+   3 ec2-52-51-85-233.eu-west-1.compute.amaz  =>     2.43Kb     2.77Kb     2.59Kb     17.0KB
+     192.168.0.16                             <=     4.50Kb     8.19Kb     9.86Kb     50.1KB
+   4 192.168.0.16                             =>         0b     2.66Kb     4.57Kb     24.4KB
+     52.94.218.7                              <=         0b     1.40Kb     2.30Kb     22.0KB
+   5 lhr25s07-in-f14.1e100.net                =>         0b     1.20Kb     1.52Kb     9.75KB
+     192.168.0.16                             <=         0b     1.81Kb     2.34Kb     15.3KB
+   6 8.248.181.250                            =>         0b       342b       158b       788B
+     192.168.0.16                             <=       624b     1.14Kb       426b     2.08KB
+   7 lhr25s02-in-f98.1e100.net                =>         0b       218b       965b     4.71KB
+     192.168.0.16                             <=       416b       541b       793b     3.87KB
+   8 ams02-login.dotomi.com                   =>         0b       291b       166b       828B
+     192.168.0.16                             <=         0b       374b       197b       984B
+   9 a104-82-228-187.deploy.static.akamaitec  =>         0b       333b     4.88Kb     24.4KB
+     192.168.0.16                             <=         0b       291b     1.96Kb     9.80KB
+  10 64.1.155.104.bc.googleusercontent.com    =>         0b       250b       166b       828B
+     192.168.0.16                             <=         0b       250b       195b       976B
+--------------------------------------------------------------------------------------------
+Total send rate:                                         0b         0b         0b
+Total receive rate:                                   556Kb     1.18Mb      813Kb
+Total send and receive rate:                          556Kb     1.18Mb      813Kb
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                         0b     7.27Mb     7.27Mb
+Cumulative (sent/received/total):                        0B     4.29MB     4.29MB
+============================================================================================
+
