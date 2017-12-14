@@ -24,7 +24,7 @@ while getopts ":B:P:F:" opt; do
         \? ) echo "Invalid argument suppplied: $OPTARG"
              echo "Acceptable command line parameters:"; echo "-B <Bandwidth> -P <% level> -F <Fixed Level>"
              exit $?
-            ;;
+             ;;
         : )
             echo "Please provide an argument"
             exit $?
@@ -32,10 +32,16 @@ while getopts ":B:P:F:" opt; do
     esac
 done
 
+if [ "$percentage_level" -ne "0" ]; then
+    # percentage_multiplier=$(( $percentage_level * $toDecimal ))
+    level=$(awk "BEGIN {printf \"%.2f\",${percentage_level}/100*${bandwidth}}")
+    echo "Limit based on $percentage_level% of $bandwidth: $level"
+fi
+
 echo "Arguments supplied:"
-echo "  bandwidth: $bandwidth"
-echo "  level: $level"
-echo "  percentage level: $percentage_level"
+echo "  bandwidth: $bandwidth Mb"
+echo "  level: $level Mb [Any device exceeding this level over 60 seconds is offending]"
+echo "  percentage level: $percentage_level% [% of Bandwidth used as limit]"
 echo "Please enter [CNTRL + C] to end CyberTraf"
 
-sh ./iftop/autoLogUploader.sh
+#sh ./iftop/autoLogUploader.sh
