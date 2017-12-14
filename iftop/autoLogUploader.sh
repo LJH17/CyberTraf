@@ -13,7 +13,7 @@ do
     currentDate=`date +%Y%m%d%H%M`
     #convert date to string
     dateString=$(printf "%12d" $currentDate)
-    dateString="$dateString.txt"
+    datePath="iftop/logs/$dateString.txt"
     echo $dateString
     # 2.
     # check new file is different from old name
@@ -23,9 +23,12 @@ do
             break # leave infinite while loop
     fi
     oldDateString=$dateString
-    sudo iftop -i wlan0 -t -s 60 > $dateString # MUST CHANGE TO 60 SECONDS "-s 60"
-    echo $dateString
+    sudo iftop -i wlan0 -t -s 60 > "./$datePath" # MUST CHANGE TO 60 SECONDS "-s 60"
+    echo $datePath
     # 3.
-    ncftpput -u cybertraf@adamfung.info -p cybertraf2017 -P 21 ftp.adamfung.info /data/ /home/pi/workspace/CyberTraf/exampleLogFiles/iftop/$dateString
+    ncftpput -u cybertraf@adamfung.info -p cybertraf2017 -P 21 ftp.adamfung.info /data/ /home/pi/workspace/CyberTraf/$datePath
     #if [ $? - ne 0 ]; then echo "Upload failed"; else echo "Upload successful"; fi
+    
+    # call log file parser script
+    sh ./logParsing/logParser.sh $dateString
 done

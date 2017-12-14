@@ -1,0 +1,32 @@
+Listening on wlan0
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 uklon6-vip-bx-003.aaplimg.com            =>     2.25Mb     3.55Mb     3.68Mb     26.2MB
+     192.168.0.39                             <=     80.6Kb      106Kb      115Kb      817KB
+   2 192.168.0.39                             =>     79.5Kb     37.4Kb     9.35Kb     46.8KB
+     edge-star-mini-shv-01-lht6.facebook.com  <=     2.16Mb     1.03Mb      264Kb     1.29MB
+   3 192.168.0.39                             =>     22.2Kb     8.61Kb     2.15Kb     10.8KB
+     xx-fbcdn-shv-01-lhr3.fbcdn.net           <=      201Kb      139Kb     34.8Kb      174KB
+   4 lhr25s13-in-f67.1e100.net                =>         0b     53.5Kb     13.4Kb     66.9KB
+     192.168.0.39                             <=         0b     7.45Kb     1.86Kb     9.31KB
+   5 153.64.199.104.bc.googleusercontent.com  =>         0b     32.6Kb     8.14Kb     40.7KB
+     192.168.0.16                             <=         0b     9.59Kb     2.40Kb     12.0KB
+   6 91.220.30.43                             =>     4.73Kb     4.76Kb     5.02Kb     25.1KB
+     192.168.0.39                             <=     6.00Kb     6.04Kb     6.35Kb     31.7KB
+   7 lhr25s13-in-f78.1e100.net                =>         0b     5.76Kb     1.65Kb     11.1KB
+     192.168.0.39                             <=         0b     3.07Kb     1.07Kb     10.1KB
+   8 lhr25s13-in-f68.1e100.net                =>         0b     4.30Kb     1.07Kb     5.37KB
+     192.168.0.39                             <=         0b     3.55Kb       910b     4.44KB
+   9 192.168.0.39                             =>         0b     1.02Kb       262b     1.28KB
+     xx-fbcdn-shv-01-lht6.fbcdn.net           <=         0b     4.32Kb     1.08Kb     5.40KB
+  10 224.0.0.251                              =>         0b         0b         0b         0B
+     192.168.0.16                             <=         0b     4.15Kb     3.91Kb     31.0KB
+--------------------------------------------------------------------------------------------
+Total send rate:                                         0b         0b         0b
+Total receive rate:                                  4.81Mb     5.02Mb     4.22Mb
+Total send and receive rate:                         4.81Mb     5.02Mb     4.22Mb
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                         0b     9.32Mb     9.32Mb
+Cumulative (sent/received/total):                        0B     30.2MB     30.2MB
+============================================================================================
+

@@ -1,0 +1,32 @@
+Listening on eth0
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 server-13-32-67-115.lhr4.r.cloudfront.n  =>     2.20Mb      450Kb      227Kb     1.11MB
+     192.168.0.60                             <=     58.3Kb     11.7Kb     6.40Kb     32.0KB
+   2 server-13-32-67-226.lhr4.r.cloudfront.n  =>     1.29Mb      263Kb     65.8Kb      329KB
+     192.168.0.60                             <=     46.9Kb     9.37Kb     2.34Kb     11.7KB
+   3 ec2-35-161-239-255.us-west-2.compute.am  =>     25.4Kb     5.24Kb     13.2Kb     69.8KB
+     192.168.0.60                             <=     13.3Kb     2.84Kb     56.8Kb      285KB
+   4 224.0.0.251                              =>         0b         0b         0b         0B
+     192.168.0.16                             <=     7.52Kb     5.25Kb     4.19Kb     57.6KB
+   5 server-13-32-67-177.lhr4.r.cloudfront.n  =>     10.3Kb     2.07Kb     1.84Kb     9.18KB
+     192.168.0.60                             <=     5.63Kb     1.13Kb       747b     3.65KB
+   6 192.168.0.60                             =>         0b       338b     1.17Kb     18.8KB
+     ec2-35-162-65-41.us-west-2.compute.amaz  <=         0b       297b       443b      125KB
+   7 192.168.0.16                             =>         0b       299b     1.10Kb     5.48KB
+     162.125.64.5                             <=         0b       250b     7.29Kb     36.4KB
+   8 cache1.service.virginmedia.net           =>     1.18Kb       242b       184b       919B
+     192.168.0.60                             <=       464b        93b        72b       359B
+   9 239.255.255.250                          =>         0b         0b         0b         0B
+     192.168.0.16                             <=         0b       122b        31b       153B
+  10 192.168.0.16                             =>         0b         0b      478Kb     2.34MB
+     162.125.64.8                             <=         0b         0b     9.51Kb     47.5KB
+--------------------------------------------------------------------------------------------
+Total send rate:                                         0b         0b         0b
+Total receive rate:                                  3.65Mb      752Kb      898Kb
+Total send and receive rate:                         3.65Mb      752Kb      898Kb
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                         0b     3.65Mb     3.65Mb
+Cumulative (sent/received/total):                        0B     13.8MB     13.8MB
+============================================================================================
+

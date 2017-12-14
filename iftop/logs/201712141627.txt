@@ -1,0 +1,32 @@
+Listening on wlan0
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 cpc25-finc13-2-0-cust145.4-2.cable.virg  =>         0b     2.29Mb     4.20Mb     38.4MB
+     192.168.0.16                             <=         0b     20.4Kb     43.3Kb      387KB
+   2 server-52-222-232-238.lhr52.r.cloudfron  =>     3.08Mb      939Kb     1.40Mb     8.20MB
+     192.168.0.60                             <=     81.8Kb     24.9Kb     37.6Kb      222KB
+   3 ec2-35-162-60-106.us-west-2.compute.ama  =>     75.2Kb     22.9Kb     5.72Kb     28.6KB
+     192.168.0.60                             <=     2.18Mb      577Kb      144Kb      721KB
+   4 lhr35s02-in-f42.1e100.net                =>         0b     10.5Kb     2.63Kb     13.2KB
+     192.168.0.16                             <=         0b     8.36Kb     2.09Kb     10.4KB
+   5 lhr25s13-in-f78.1e100.net                =>         0b     6.25Kb     1.68Kb     13.0KB
+     192.168.0.16                             <=         0b     2.30Kb     1.03Kb     23.7KB
+   6 224.0.0.251                              =>         0b         0b         0b         0B
+     192.168.0.16                             <=     3.62Kb     5.23Kb     4.23Kb     31.6KB
+   7 server-52-222-232-184.lhr52.r.cloudfron  =>     1.39Kb     1.15Kb     1.67Kb     10.2KB
+     192.168.0.60                             <=       848b       678b       968b     5.75KB
+   8 145.72-253-62.static.virginmediabusines  =>         0b       208b       120b       910B
+     192.168.0.16                             <=         0b       635b       389b     2.94KB
+   9 ec2-35-161-239-255.us-west-2.compute.am  =>     1.64Kb       337b       493b     62.6KB
+     192.168.0.60                             <=     1.65Kb       338b       884b      500KB
+  10 cpc25-finc13-2-0-cust142.4-2.cable.virg  =>         0b       159b       108b       849B
+     192.168.0.16                             <=         0b       368b       323b     2.62KB
+--------------------------------------------------------------------------------------------
+Total send rate:                                         0b         0b         0b
+Total receive rate:                                  5.43Mb     3.87Mb     5.92Mb
+Total send and receive rate:                         5.43Mb     3.87Mb     5.92Mb
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                         0b     14.9Mb     14.9Mb
+Cumulative (sent/received/total):                        0B     51.2MB     51.2MB
+============================================================================================
+

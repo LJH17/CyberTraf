@@ -36,3 +36,6 @@ echo "Arguments supplied:"
 echo "  bandwidth: $bandwidth"
 echo "  level: $level"
 echo "  percentage level: $percentage_level"
+echo "Please enter [CNTRL + C] to end CyberTraf"
+
+sh ./iftop/autoLogUploader.sh

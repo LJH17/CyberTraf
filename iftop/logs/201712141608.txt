@@ -1,0 +1,32 @@
+Listening on wlan0
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 151.101.17.140                           =>         0b      430Kb      108Kb      538KB
+     192.168.0.39                             <=         0b     21.3Kb     5.34Kb     26.7KB
+   2 lhr25s13-in-f8.1e100.net                 =>         0b     23.9Kb     5.98Kb     29.9KB
+     192.168.0.39                             <=         0b     4.76Kb     1.19Kb     5.95KB
+   3 91.220.30.43                             =>     5.91Kb     4.96Kb     4.89Kb     24.4KB
+     192.168.0.39                             <=     9.03Kb     6.73Kb     6.34Kb     31.7KB
+   4 lhr35s06-in-f8.1e100.net                 =>         0b     6.56Kb     1.64Kb     8.20KB
+     192.168.0.39                             <=         0b     4.31Kb     1.08Kb     5.38KB
+   5 lhr25s13-in-f2.1e100.net                 =>         0b     6.26Kb     1.56Kb     7.82KB
+     192.168.0.39                             <=         0b     4.51Kb     1.13Kb     5.64KB
+   6 192.168.0.39                             =>         0b     1.07Kb       273b     1.33KB
+     pixel.quantserve.com                     <=         0b     6.92Kb     1.73Kb     8.65KB
+   7 cache1.service.virginmedia.net           =>         0b     4.22Kb     1.31Kb     6.64KB
+     192.168.0.39                             <=         0b     2.69Kb       861b     4.28KB
+   8 lhr25s13-in-f14.1e100.net                =>     4.71Kb     2.30Kb     19.3Kb     99.2KB
+     192.168.0.39                             <=     13.8Kb     4.30Kb     3.21Kb     19.8KB
+   9 52.94.216.48                             =>         0b     4.54Kb     1.14Kb     5.68KB
+     192.168.0.39                             <=         0b     1.22Kb       312b     1.52KB
+  10 server-52-222-237-185.lhr52.r.cloudfron  =>         0b     4.69Kb     1.17Kb     5.86KB
+     192.168.0.39                             <=         0b     1.05Kb       270b     1.32KB
+--------------------------------------------------------------------------------------------
+Total send rate:                                         0b         0b         0b
+Total receive rate:                                  36.8Kb      580Kb      235Kb
+Total send and receive rate:                         36.8Kb      580Kb      235Kb
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                         0b     2.43Mb     2.43Mb
+Cumulative (sent/received/total):                        0B     1.28MB     1.28MB
+============================================================================================
+
