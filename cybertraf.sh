@@ -33,6 +33,16 @@ while getopts ":B:P:L:" opt; do
     esac
 done
 
+if [ "$bandwidth" -eq 0 ]; then
+    echo "Please provide the network's bandwidth"
+    exit $?
+fi
+
+if [ "$percentage_level" -eq 0 ] && [ "$level" -eq 0 ]; then
+    echo "Please either specify a perecentage level or a fixed level"
+    exit $?
+fi
+
 if [ "$level" -gt "$bandwidth" ]; then
     echo "Level provided ($level) cannot be greater than the bandwidth ($bandwidth)"
     exit $?
@@ -58,4 +68,4 @@ fi
 
 echo "\nPlease enter [CNTRL + C] to end CyberTraf"
 
-#sh ./iftop/autoLogUploader.sh
+sh ./iftop/autoLogUploader.sh
