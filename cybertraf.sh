@@ -9,6 +9,7 @@
 bandwidth=0
 level=0
 percentage_level=0
+valid_level="false"
 
 while getopts ":B:P:L:" opt; do
     case ${opt} in
@@ -31,6 +32,16 @@ while getopts ":B:P:L:" opt; do
             ;;
     esac
 done
+
+if [ "$level" -gt "$bandwidth" ]; then
+    echo "Level provided ($level) cannot be greater than the bandwidth ($bandwidth)"
+    exit $?
+fi
+
+if [ "$percentage_level" -gt "100" ] || [ "$percentage_level" -lt "0" ]; then
+    echo "Percentage level provided ($percentage_level) cannot be greater than 100% or less than 0%"
+    exit $?
+fi
 
 echo "Welcome to CyberTraf\n"
 echo "Arguments supplied:"
