@@ -31,20 +31,22 @@ class name: public SpecialExceptionBase { \
 // exception definitions
 MAKE_SPECIAL_EXCEPTION( error, "LogConverter has terminated due to an error" )
 MAKE_SPECIAL_EXCEPTION( cantOpenFile, "Unable to open .txt file" )
+MAKE_SPECIAL_EXCEPTION( cantWriteFile, "Unable to write .html file" )
 
 void convertLogFile( const std::string & path ) {
     
-    const std::string outPath(path.substr(0, path.length() - 4) + ".html");
-    cout << "TESTING outPath: " << outPath << endl;
-    std::ofstream fOut(outPath);
     const char newLine[] = "\n";
     const char smallIndent[] = "  ";
     const char indent[] = "    ";    
     const char bigIndent[] = "      ";
 
-    cout << "Opening .txt file" << endl;
-    std::ifstream inFile;
-    inFile.open(path);
+    const std::string outPath(path.substr(0, path.length() - 4) + ".html");
+    std::ofstream fOut(outPath);
+    if (!fOut.is_open()) {
+        throw cantWriteFile();
+    }
+
+    std::ifstream inFile(path);
     if (!inFile) {
         throw cantOpenFile();
     }
