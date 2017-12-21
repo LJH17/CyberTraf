@@ -54,7 +54,7 @@ void convertLogFile( const std::string & path ) {
     fOut << "<html lang='en'>" << newLine << "<head> </head>" << newLine
         << smallIndent << "<body>" << newLine << indent
         << "<div style='white-space: pre; font-family: monospace;'>" << newLine
-        << bigIndent << "<h1 style='text-align: center;'>Log File</h1>" << endl;
+        << bigIndent << "<h2 style='text-align: center;'>Log File</h2>" << endl;
     
     // add break tags (<br>) after each line of log file
     std::string line;
