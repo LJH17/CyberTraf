@@ -7,15 +7,20 @@
 1. pieChartGenerator.html  
     - Converts a log file (currently manually chosen) into a pie chart
 
+2. barChartGenerator.html  
+    - Converts a log file (currently manually chosen) into a bar chart
+
 2. .gitignore  
     - Allows git to intelligently ignore files that aren't needed in this repository.
 
 3. cybertraf.sh  
     - Accepts argument of Bandwidth and either a percentage or fixed level threshold 
-    - Runs the autoLogUploader.sh script which initialises `iftop`, uploads the generated log file to the FTP server, runs the `LogConverter` C++ program which converts the log .txt file to an HTML file, and uploads that to the FTP server
+    - Runs the `autoLogUploader.sh` script
 
 4. autoLogUploader.sh  
-    - Runs iftop to generate bandwidth usage data as a log .txt file
-    - Uploads log file to CyberTraf FTP server
-    - Converts .txt log file to .html file and uploads to FTP server
-    - Analyses log file for offending IP addresses, and creates and uploads a HTML file listing offending IP addresses and their bandwidth usage to the FTP server
+    - Runs `iftop` to generate bandwidth usage data as a log .txt file
+    - Uploads log file to CyberTraf FTP server using `ncftpput`
+    - Runs `LogConverter` to convert .txt log file to .html file
+    - Uplaods .html log file to FTP server
+    - Runs `LogAnalyser` to detect offending IP addresses and create a .html file listing the offending IP addresses and their respective bandwidth usage
+    - Uploads .html offenders file to FTP server
