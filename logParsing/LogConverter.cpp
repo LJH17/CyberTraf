@@ -11,7 +11,6 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <ctype.h>
 
 using namespace std;
 
@@ -40,7 +39,7 @@ void convertLogFile( const std::string & path ) {
     const char indent[] = "    ";    
     const char bigIndent[] = "      ";
 
-    const std::string outPath(path.substr(0, path.length() - 4) + ".html");
+    const std::string outPath(path.substr(0, path.length() - 3) + "html");
     std::ofstream fOut(outPath);
     if (!fOut.is_open()) {
         throw cantWriteFile();
@@ -54,8 +53,8 @@ void convertLogFile( const std::string & path ) {
     // create/output html body and title tags
     fOut << "<html lang='en'>" << newLine << "<head> </head>" << newLine
         << smallIndent << "<body>" << newLine << indent
-        << "<div style='white-space: pre; font-family: monospace;'>"
-        << newLine << bigIndent << "<h1 style='text-align: center;'>Log File</h1>" << endl;
+        << "<div style='white-space: pre; font-family: monospace;'>" << newLine
+        << bigIndent << "<h1 style='text-align: center;'>Log File</h1>" << endl;
     
     // add break tags (<br>) after each line of log file
     std::string line;
