@@ -68,4 +68,5 @@ fi
 
 echo "\nPlease enter [CNTRL + C] to end CyberTraf"
 
+# Call autoLogUploader.sh to perform log analysing, converting, and uploading
 sh ./iftop/autoLogUploader.sh

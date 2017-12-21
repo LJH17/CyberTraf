@@ -13,3 +13,9 @@
 3. cybertraf.sh  
     - Accepts argument of Bandwidth and either a percentage or fixed level threshold 
     - Runs the autoLogUploader.sh script which initialises `iftop`, uploads the generated log file to the FTP server, runs the `LogConverter` C++ program which converts the log .txt file to an HTML file, and uploads that to the FTP server
+
+4. autoLogUploader.sh  
+    - Runs iftop to generate bandwidth usage data as a log .txt file
+    - Uploads log file to CyberTraf FTP server
+    - Converts .txt log file to .html file and uploads to FTP server
+    - Analyses log file for offending IP addresses, and creates and uploads a HTML file listing offending IP addresses and their bandwidth usage to the FTP server

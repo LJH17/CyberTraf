@@ -25,7 +25,7 @@ do
     #         break # leave infinite while loop
     #         # exit $?
     # fi
-    oldDateString=$dateString
+    oldDateString="$dateString"
     
     # 3.
     # Run iftop to collect log of bandwidth usage on wireless access point    
@@ -44,5 +44,4 @@ do
     # Generate HTML file detailing offenders and upload to FTP server
     ./logParsing/LogAnalyser "$datePath"
     ncftpput -u cybertraf@adamfung.info -p cybertraf2017 -P 21 ftp.adamfung.info /data/ $offendersHTML
-    
 done
