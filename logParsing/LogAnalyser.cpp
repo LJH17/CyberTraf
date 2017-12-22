@@ -13,6 +13,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -33,6 +34,7 @@ class name: public SpecialExceptionBase { \
 MAKE_SPECIAL_EXCEPTION( error, "LogConverter has terminated due to an error" )
 MAKE_SPECIAL_EXCEPTION( cantOpenFile, "Unable to open .txt file" )
 MAKE_SPECIAL_EXCEPTION( cantWriteFile, "Unable to write .html file" )
+MAKE_SPECIAL_EXCEPTION( ipUsageMismatch, "IP usage data entries does not match the number of IP entries" )
 
 // Offenders structure
 struct OffendersObject {
@@ -160,8 +162,134 @@ void analyseLogFile( const std::string & path ) {
 
     // analyse each line for ip/bandwidth usage
     std::string line;
+    std::string ip("");
+    std::string useString("");
+    float use;
+
+    std::vector<std::string> sourceIPs;
+    std::vector<std::string> destinationIPs;
+    std::vector<float> usage;
+
+    bool IPread(false);
+    bool useRead(false);
+
     for(unsigned int lineNumber = 1; std::getline(inFile, line); lineNumber ++) {
-        // 
+        IPread = false;
+        if(lineNumber >= 4) {   // start line analysis from line 4
+            if(line[0] == '-') {    // break from for loop if all IP addresses have been processed
+                break;
+            }
+            if(lineNumber % 2 == 0) { // even line => source IP
+                for(unsigned int charNumber = 0; charNumber < line.length(); charNumber ++) {
+                    if(!IPread) {
+                        if(charNumber >= 5) {   // beginning of IP chars
+                            if(line[charNumber] != ' ') {  // if still reading IP
+                                ip.push_back(line[charNumber]); // append char to IP string
+                            }
+                            else {
+                                IPread = true;
+                                sourceIPs.push_back(ip);
+                                ip.clear();
+                            }
+                        }
+                    }
+                    else {  // source IP read
+                        if(!useRead) {
+                            if(charNumber >= 75) {  // start of BW avg over last 40 second data
+                                if(line[charNumber] == 'M') {
+                                    useRead = true;
+                                    use = ::atof(useString.c_str());
+                                }
+                                else if(line[charNumber] == 'K') {
+                                    useRead = true;
+                                    use = ::atof(useString.c_str());
+                                    use = use / 1000; // convert Kb to Mb
+                                }
+                                else if(line[charNumber] == 'b') {
+                                    useRead = true;
+                                    use = ::atof(useString.c_str());
+                                    use = use / 1000000;    // convert b to Mb
+                                }
+                                else if(line[charNumber] != ' ') { // if char is not a space char
+                                    useString.push_back(line[charNumber]);
+                                }
+                            }
+                            if(useRead) {
+                                useRead = false;    // reset useRead boolean flag to false
+                                useString.clear();                                
+                                break;  // escape for loop reading the line
+                            }
+                        }
+                    }
+                }
+            }
+            else {  // odd lines
+                for(unsigned int charNumber = 0; charNumber < line.length(); charNumber ++) {
+                    if(charNumber >= 5) {   // beginning of IP chars
+                        if(line[charNumber] != ' ') {  // if still reading IP
+                            ip.push_back(line[charNumber]); // append char to IP string
+                        }
+                        else {
+                            destinationIPs.push_back(ip);
+                            usage.push_back(use);
+                            ip.clear();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // mismatch error if destination and usage entries size do not equal
+    if(destinationIPs.size() != usage.size()) {
+        throw ipUsageMismatch();
+    }
+
+    // TESTING line parsing/analysing
+    // cout << "Source IPs" << endl;
+    // for(unsigned int i = 0; i < sourceIPs.size(); i ++) {
+    //     cout << sourceIPs[i] << endl;
+    // }
+    // cout << "Destination IPs and Usage" << endl;
+    // for(unsigned int i = 0; i < destinationIPs.size(); i ++) {
+    //     cout << destinationIPs[i] << "    " << usage[i] << endl;
+    // }
+
+    // check for possible incoming DDOS attack if all source IPs match
+    bool sourceIPsMatch(true);
+    for(unsigned int i = 0; i < sourceIPs.size() - 1; i ++) {
+        if(sourceIPs[i] != sourceIPs[i + 1]) {
+            sourceIPsMatch = false;
+            break;
+        }
+    }
+    if(sourceIPsMatch) {
+        attackers.incoming.push_back(sourceIPs[0]);
+    }
+
+    // calculate BW usage of each IP
+    std::vector<float> totalUsage;
+    std::vector<std::string> IPList = destinationIPs;
+    std::sort(IPList.begin(), IPList.end());
+    auto it = std::unique(std::begin(IPList), std::end(IPList));
+    IPList.erase(it, IPList.end());
+
+    float BWCount;
+    for(unsigned int i = 0; i < IPList.size(); i ++) {
+        BWCount = 0;
+        for(unsigned int j = 0; j < destinationIPs.size(); j ++) {
+            if(destinationIPs[j] == IPList[i]) {
+                BWCount += usage[j];
+            }
+        }
+        totalUsage.push_back(BWCount);
+    }
+
+    // test total IP BW usage
+    cout << "Total BW usage by IP" << endl;
+    for(unsigned int i = 0; i < IPList.size(); i ++) {
+        cout << IPList[i] << "    " << totalUsage[i] << " Mbps" << endl;
     }
 
     // genrate HTML file from offenders TXT file
