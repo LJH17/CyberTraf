@@ -4,7 +4,7 @@
 
 # 1. BW (Define) -B <BW>
 # 2. Percentage level -P <% level>
-# or 3. Fixed level -F <fixed level>
+# or 3. Fixed level -L <fixed level>
 
 bandwidth=0
 level=0

@@ -53,7 +53,7 @@ void createHTMLFile( const OffendersObject & offenders,
     const std::string & path ) {
     
     // create offenders HTML file path
-    const std::string outPath(path.substr(0, path.length() - 4) + "Offenders.html");
+    const std::string outPath(path.substr(0, path.length() - 4) + "-Offenders.html");
     cout << "Creating offender HTML file called: " << outPath << endl;
 
     // initialise ofstream at HTML file path
@@ -287,9 +287,9 @@ void analyseLogFile( const std::string & path, const float & limit ) {
     }
 
     // test total IP BW usage
-    cout << "Total BW usage by IP" << endl;
+    // cout << "Total BW usage by IP" << endl;
     for(unsigned int i = 0; i < IPList.size(); i ++) {
-        cout << IPList[i] << "    " << totalUsage[i] << " Mbps" << endl;
+        // cout << IPList[i] << "    " << totalUsage[i] << " Mbps" << endl;
         if(totalUsage[i] >= limit) {
             offenders.ip.push_back(IPList[i]);
             offenders.usage.push_back(totalUsage[i]);
