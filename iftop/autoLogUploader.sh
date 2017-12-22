@@ -42,6 +42,6 @@ do
     #5.
     # Call log analyser program to find offending IP addresses
     # Generate HTML file detailing offenders and upload to FTP server
-    ./logParsing/LogAnalyser "$datePath"
+    ./logParsing/LogAnalyser "$datePath" $1
     ncftpput -u cybertraf@adamfung.info -p cybertraf2017 -P 21 ftp.adamfung.info /data/ $offendersHTML
 done

@@ -128,7 +128,7 @@ void createHTMLFile( const OffendersObject & offenders,
 
 }
 
-void analyseLogFile( const std::string & path ) {
+void analyseLogFile( const std::string & path, const float & limit ) {
 
     // create offender TXT file path
     // const std::string outPath(path.substr(0, path.length() - 4) + "Offenders.txt");
@@ -149,10 +149,10 @@ void analyseLogFile( const std::string & path ) {
     // create object of offenders
     OffendersObject offenders;
     // TESTING - mock network data
-    offenders.ip.push_back("192.168.0.39");
-    offenders.usage.push_back(30);
-    offenders.ip.push_back("192.168.0.16");
-    offenders.usage.push_back(25);
+    // offenders.ip.push_back("192.168.0.39");
+    // offenders.usage.push_back(30);
+    // offenders.ip.push_back("192.168.0.16");
+    // offenders.usage.push_back(25);
 
     // create object of ddos possibilities
     DdosObject attackers;
@@ -290,6 +290,10 @@ void analyseLogFile( const std::string & path ) {
     cout << "Total BW usage by IP" << endl;
     for(unsigned int i = 0; i < IPList.size(); i ++) {
         cout << IPList[i] << "    " << totalUsage[i] << " Mbps" << endl;
+        if(totalUsage[i] >= limit) {
+            offenders.ip.push_back(IPList[i]);
+            offenders.usage.push_back(totalUsage[i]);
+        }
     }
 
     // genrate HTML file from offenders TXT file
@@ -303,9 +307,10 @@ int main( int argc, char* argv[] ) {
     // argument to pass: path of log file that needs analysing
     const std::string logPath(argv[1]);
     cout << "Analysing log file at: " << logPath << endl;
+    const float limit( ::atof(argv[2]));    // convert char* to float
 
     try {
-        analyseLogFile(logPath);
+        analyseLogFile(logPath, limit);
     }
     catch (const std::exception & ex) {
         cout << "Error: " << ex.what() << endl;
